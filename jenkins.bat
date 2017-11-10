@@ -10,7 +10,7 @@ set projectname=AdvertsWidget
 echo %version%
 
 npm install
-ng build
+ng build --prod
 
 "C:\Program Files (x86)\OctopusTools.4.22.1\Octo.exe" pack --id %projectname% --version "%version%" --basePath dist --format=nuget
 "C:\Program Files (x86)\OctopusTools.4.22.1\Octo.exe" push --package %projectname%."%version%".nupkg --server http://octopus.wizardsoft.com/ --apiKey API-RYCVCNFYXFQVTPBL6JZLVIWYC
