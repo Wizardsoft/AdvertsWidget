@@ -1,0 +1,61 @@
+<div class="container-fluid">
+
+  <div *ngIf="loadAdverts">
+
+      <div class="row justify-content-center mt-2">
+          <div class="col-sm-8 col-xl-4">
+      
+            <div class="card">
+              <div class="card-header">
+               <h4 class="text-center">Job Search</h4> 
+              </div>
+              <div class="card-body justify-content-center">
+                <form class="form-inline">
+                  <div class="form-group w-100">
+                    <input type="text" class="form-control w-100" [(ngModel)]="query" name="query" placeholder="Search Jobs">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <div *ngFor="let a of loadAdverts.Job | advertFilter:query">
+      <div class="row justify-content-center mt-2">
+        <div class="col-sm-8 col-xl-4">
+          <div class="card text-center">
+            <!-- <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22382%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20382%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15fa2fcc63a%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A19pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15fa2fcc63a%22%3E%3Crect%20width%3D%22382%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22142.40625%22%20y%3D%2298.4%22%3E382x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;"> -->
+            <div class="card-body">
+              <h4 class="card-title">{{a.Title}}</h4>
+              <span class="card-text font-weight-bold">{{a.Classifications.Classification[2].Text}} </span> -
+              <span class="card-text d-inline">{{a.Classifications.Classification[3].Text}} </span>
+              <br>
+              <span class="card-text font-weight-bold">{{a.Classifications.Classification[0].Text}} </span> -
+              <span class="card-text">{{a.Classifications.Classification[1].Text}} </span>
+
+              <ul class="mt-4">
+                <li *ngFor="let b of a.BulletPoints.BulletPoint">
+                  {{b}}
+                </li>
+              </ul>
+
+              <p class="card-text">{{a.Summary}}</p>
+              <a href="{{a.Apply.Url}}" target="_blank" class="card-link btn btn-primary">Apply</a>
+              <!-- <a href="{{a.Apply.Url}}" target="_blank" class="card-link">Apply</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf ="!loadAdverts" class="row justify-content-center mt-2">
+    <div class="col-sm-8 col-xl-4">
+      <div class="jumbotron">
+        <h1 class="display-5">There are no adverts !!!</h1>        
+      </div>
+    </div>
+  </div>
+
+
+</div>
