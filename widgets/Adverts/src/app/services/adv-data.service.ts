@@ -18,6 +18,7 @@ import 'rxjs/add/observable/throw';
 export class AdvDataService {
 
   private _getAddsUrl = 'https://api.wizardsoft.com/v1/adverts/';
+  // to test: http://localhost:4200/WCYvXk6bTYW
 
   constructor(private _http: Http) { }
 
