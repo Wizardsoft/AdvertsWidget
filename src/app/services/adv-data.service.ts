@@ -19,6 +19,7 @@ export class AdvDataService {
 
   private _getAddsUrl = 'https://api.wizardsoft.com/v1/adverts/';
   // to test: http://localhost:4200/WCYvXk6bTYW
+  // https://jobs.wizardsoft.com/WCYvXk6bTYW
 
   constructor(private _http: Http) { }
 
