@@ -1,2 +1,2 @@
-pm cache clean
+npm cache clean
 npm install
