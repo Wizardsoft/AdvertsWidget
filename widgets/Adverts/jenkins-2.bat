@@ -1,1 +1,1 @@
-node_modules/@angular/cli/bin/ng build --prod
+node_modules/.bin/ng build --prod
