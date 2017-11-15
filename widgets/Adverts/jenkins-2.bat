@@ -1,1 +1,1 @@
-ng build --prod
+node_modules/.bin/ng ng build --prod
