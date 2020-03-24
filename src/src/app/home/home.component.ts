@@ -38,8 +38,13 @@ export class HomeComponent implements OnInit {
         }, error => {
             this.spinnerService.hide();
             this.isLoading = false;
-            this.errorMesage = <any>error;        
+
+            if(<any>error == "You are not authorized to get this resource") {
+              this.errorMesage = "It appears that you are currently running an Ad Blocker. Please disable and try again."
+            } 
+            else {
+              this.errorMesage = <any>error;  
+            }                
         });
   }
-
 }
